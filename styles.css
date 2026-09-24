@@ -74,15 +74,14 @@ img { max-width: 100%; }
 
 /* Hero */
 .hero__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
-/* Photo served from the itsagoodstory.com (Showit) image CDN, under a cream wash so the blue headline stays crisp.
-   To host a copy here instead, add room-hero.jpg to the repo and swap the URL for "room-hero.jpg". */
+/* Your photo, darkened so the white headline reads. The grain comes from the photo itself. */
 .hero__banner {
   position: relative;
   padding: clamp(200px, 22vw, 320px) 0 clamp(64px, 8vw, 112px);
-  background-color: var(--cream);
+  background-color: #1d1d1d;
   background-image:
-    linear-gradient(180deg, rgba(255,255,252,.78) 0%, rgba(255,255,252,.5) 22%, rgba(255,255,252,.6) 60%, rgba(255,255,252,.82) 100%),
-    url("https://static.showit.co/1600/qY-n5JiScgAGJfdagwA5kQ/259108/goodstory-vision-brand-strategy.jpg");
+    linear-gradient(180deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.28) 30%, rgba(0,0,0,.38) 70%, rgba(0,0,0,.55) 100%),
+    url("room-hero.jpg");
   background-size: cover;
   background-position: center 10%;
 }
@@ -90,7 +89,7 @@ img { max-width: 100%; }
   margin: 0;
   font-family: var(--serif);
   font-weight: 200;
-  color: var(--blue);
+  color: #fff;
   font-size: clamp(84px, 17vw, 240px);
   line-height: .86;
   letter-spacing: -.035em;
@@ -101,7 +100,7 @@ img { max-width: 100%; }
   font-weight: 200;
   font-size: clamp(26px, 3.4vw, 44px);
   line-height: 1.15;
-  color: var(--ink);
+  color: #fff;
 }
 .hero__body {
   display: grid;
@@ -109,7 +108,7 @@ img { max-width: 100%; }
   gap: clamp(28px, 6vw, 96px);
 }
 /* Lavender "breathing room" block for the intro, per the brand guidelines */
-.hero__intro { background: var(--lavender); padding: clamp(56px, 8vw, 104px) 0; margin-bottom: clamp(48px, 7vw, 88px); }
+.hero__intro { color: var(--blue); background: var(--lavender); padding: clamp(56px, 8vw, 104px) 0; margin-bottom: clamp(48px, 7vw, 88px); }
 .hero__lede {
   margin: 0;
   font-family: var(--serif);
@@ -367,3 +366,9 @@ img { max-width: 100%; }
 .follow a { display: inline-flex; transition: opacity .15s, transform .15s; }
 .follow a:hover { opacity: .8; transform: translateY(-1px); }
 .follow__icon { height: 26px; width: auto; }
+
+/* Header sits on the dark photo */
+.masthead .peace, .masthead .wordmark { background: #fff; }
+.masthead__cta { color: #fff; }
+.masthead__cta:hover { color: var(--lavender); }
+.hero__intro .hero__find { color: var(--blue); }
