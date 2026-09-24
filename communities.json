@@ -1,0 +1,1075 @@
+{
+  "source": "Networking Community Groups.xlsx",
+  "sheet": "Networking Groups",
+  "communities": [
+    {
+      "id": "malloy-industries",
+      "name": "Malloy Industries",
+      "description": "Fractional executive placement firm connecting companies with senior-level talent on a part-time basis.",
+      "url": "https://malloyindustries.com",
+      "categories": [
+        "Fractional work"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "Unknown"
+      ],
+      "sourceRows": [
+        4
+      ],
+      "pathways": [
+        "fractional",
+        "executive"
+      ],
+      "fee": "Free",
+      "referral": "Not specified",
+      "location": "Not specified",
+      "goodFor": "Fractional executive placement firm connecting companies with senior-level talent on a part-time basis."
+    },
+    {
+      "id": "catalant",
+      "name": "Catalant",
+      "description": "Platform connecting companies with experienced independent consultants and fractional executives.",
+      "url": "https://catalant.com",
+      "categories": [
+        "Fractional work"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        5
+      ],
+      "pathways": [
+        "fractional",
+        "executive"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Platform connecting companies with experienced independent consultants and fractional executives."
+    },
+    {
+      "id": "the-board",
+      "name": "The Board",
+      "description": null,
+      "url": "https://www.wearetheboard.co",
+      "categories": [
+        "Fractional work"
+      ],
+      "notes": [
+        "There is a fee to join and they take part of your consulting projects you book through them."
+      ],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        6
+      ],
+      "pathways": [
+        "fractional"
+      ],
+      "fee": "Paid",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Fractional work"
+    },
+    {
+      "id": "growth-mentor",
+      "name": "Growth Mentor",
+      "description": "Mentorship platform pairing startup founders and marketers with vetted growth experts.",
+      "url": "https://growthmentor.com",
+      "categories": [
+        "Fractional work"
+      ],
+      "notes": [
+        "Free for mentors!"
+      ],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        7
+      ],
+      "pathways": [
+        "fractional",
+        "founders",
+        "marketing"
+      ],
+      "fee": "Paid",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Mentorship platform pairing startup founders and marketers with vetted growth experts."
+    },
+    {
+      "id": "morales-hr",
+      "name": "Morales HR",
+      "description": "HR consulting and recruiting community for HR professionals.",
+      "url": "https://moraleshr.com",
+      "categories": [
+        "HR / recruiting"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        9
+      ],
+      "pathways": [],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "HR consulting and recruiting community for HR professionals."
+    },
+    {
+      "id": "cpg-start-up",
+      "name": "CPG Start Up",
+      "description": "Community for CPG founders and operators covering launch, growth, and retail strategy.",
+      "url": "https://startupcpg.com",
+      "categories": [
+        "CPG"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        11
+      ],
+      "pathways": [
+        "founders"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for CPG founders and operators covering launch, growth, and retail strategy."
+    },
+    {
+      "id": "stormking",
+      "name": "StormKing",
+      "description": "Invite-only community for retail and ecommerce executives.",
+      "url": null,
+      "categories": [
+        "Retail / ecommerce"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "Yes"
+      ],
+      "sourceRows": [
+        13
+      ],
+      "pathways": [
+        "executive"
+      ],
+      "fee": "Free",
+      "referral": "Referral / invite required",
+      "location": "Not specified",
+      "goodFor": "Invite-only community for retail and ecommerce executives."
+    },
+    {
+      "id": "retail-women-in-tech",
+      "name": "Retail Women in Tech",
+      "description": "Network for women working at the intersection of retail and technology.",
+      "url": "https://retailtechmedianexus.com",
+      "categories": [
+        "Retail / ecommerce",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        14,
+        62
+      ],
+      "pathways": [
+        "women"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Network for women working at the intersection of retail and technology."
+    },
+    {
+      "id": "roaring-ladies-of-ecommerce",
+      "name": "Roaring Ladies of Ecommerce",
+      "description": "Community for women working in ecommerce.",
+      "url": "https://getmanifest.ai/rloe-women-community",
+      "categories": [
+        "Retail / ecommerce",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        15,
+        63
+      ],
+      "pathways": [
+        "women"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for women working in ecommerce."
+    },
+    {
+      "id": "amazing-women-of-ecommerce",
+      "name": "Amazing Women of Ecommerce",
+      "description": "Network supporting women in the ecommerce space.",
+      "url": "https://womeninecomm.yotpo.com/about/",
+      "categories": [
+        "Retail / ecommerce",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        16,
+        64
+      ],
+      "pathways": [
+        "women"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Network supporting women in the ecommerce space."
+    },
+    {
+      "id": "mixing-board",
+      "name": "Mixing Board",
+      "description": "Curated community for senior communications and PR professionals. Referral required.",
+      "url": "https://mixingboard.co",
+      "categories": [
+        "Communications / marketing"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "Yes"
+      ],
+      "sourceRows": [
+        18
+      ],
+      "pathways": [
+        "marketing"
+      ],
+      "fee": "Free",
+      "referral": "Referral / invite required",
+      "location": "Not specified",
+      "goodFor": "Curated community for senior communications and PR professionals. Referral required."
+    },
+    {
+      "id": "comms-consultants",
+      "name": "Comms Consultants",
+      "description": "Community for independent communications consultants to share resources and opportunities.",
+      "url": "http://commsconsultants.com",
+      "categories": [
+        "Communications / marketing"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        20
+      ],
+      "pathways": [
+        "marketing"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for independent communications consultants to share resources and opportunities."
+    },
+    {
+      "id": "lenny-s-newsletter",
+      "name": "Lenny's Newsletter",
+      "description": "Substack newsletter focusing on product, growth, and career advice for product leaders, founders, and builders. Paid subscribers get access to promotional deals and Slack channels.",
+      "url": "https://www.lennysnewsletter.com",
+      "categories": [
+        "Tech"
+      ],
+      "notes": [
+        "If you join the newsletter you can get access to AI tools & Slack"
+      ],
+      "fees": [],
+      "referrals": [],
+      "sourceRows": [
+        22
+      ],
+      "pathways": [
+        "founders"
+      ],
+      "fee": "Not specified",
+      "referral": "Not specified",
+      "location": "Not specified",
+      "goodFor": "Substack newsletter focusing on product, growth, and career advice for product leaders, founders, and builders. Paid subscribers get access to promotional deals and Slack channels."
+    },
+    {
+      "id": "nextplay",
+      "name": "NextPlay",
+      "description": "Career development platform for tech professionals with mentorship and job opportunities.",
+      "url": "https://nextplay.ai",
+      "categories": [
+        "Tech"
+      ],
+      "notes": [
+        "Trial period recommended before committing"
+      ],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        23
+      ],
+      "pathways": [],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Career development platform for tech professionals with mentorship and job opportunities."
+    },
+    {
+      "id": "demand-collective",
+      "name": "Demand Collective",
+      "description": "Community for demand generation and growth marketers in tech.",
+      "url": "https://www.demandcollective.io",
+      "categories": [
+        "Tech"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        24
+      ],
+      "pathways": [
+        "marketing"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for demand generation and growth marketers in tech."
+    },
+    {
+      "id": "growmance",
+      "name": "Growmance",
+      "description": "Growth marketing community for practitioners to share strategies and learnings.",
+      "url": "https://audienti.com/growmance/",
+      "categories": [
+        "Tech"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        25
+      ],
+      "pathways": [
+        "marketing"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Growth marketing community for practitioners to share strategies and learnings."
+    },
+    {
+      "id": "freelancing-for-good",
+      "name": "Freelancing for Good",
+      "description": "Community for freelancers focused on social impact and mission-driven work.",
+      "url": "https://freelancingforgood.com",
+      "categories": [
+        "Tech"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        26
+      ],
+      "pathways": [],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for freelancers focused on social impact and mission-driven work."
+    },
+    {
+      "id": "ladies-who-strategize",
+      "name": "Ladies Who Strategize",
+      "description": "Community for women in marketing and brand strategy.",
+      "url": "https://lws.community",
+      "categories": [
+        "Marketing / strategy",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        28,
+        59
+      ],
+      "pathways": [
+        "marketing",
+        "women"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for women in marketing and brand strategy."
+    },
+    {
+      "id": "mktgwmn",
+      "name": "MKTGWMN",
+      "description": null,
+      "url": "https://www.mktgwmn.com",
+      "categories": [
+        "Marketing / strategy",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [],
+      "referrals": [],
+      "sourceRows": [
+        29,
+        60
+      ],
+      "pathways": [
+        "marketing",
+        "women"
+      ],
+      "fee": "Not specified",
+      "referral": "Not specified",
+      "location": "Not specified",
+      "goodFor": "Marketing / strategy, Women-focused"
+    },
+    {
+      "id": "re-brand",
+      "name": "Re:Brand",
+      "description": "Community for brand strategists and marketers focused on transformation and repositioning.",
+      "url": null,
+      "categories": [
+        "Marketing / strategy"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        30
+      ],
+      "pathways": [
+        "marketing"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for brand strategists and marketers focused on transformation and repositioning."
+    },
+    {
+      "id": "own-it",
+      "name": "Own It",
+      "description": "Community for independent agency owners to share resources and grow their businesses.",
+      "url": "https://untilyouownit.com",
+      "categories": [
+        "Agency owners"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        32
+      ],
+      "pathways": [
+        "founders",
+        "marketing"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for independent agency owners to share resources and grow their businesses."
+    },
+    {
+      "id": "female-agency-owners",
+      "name": "Female Agency Owners",
+      "description": "Network specifically for women who own marketing and creative agencies.",
+      "url": "https://femaleagencyowners.com",
+      "categories": [
+        "Agency owners",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Paid",
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        33,
+        65
+      ],
+      "pathways": [
+        "marketing",
+        "women"
+      ],
+      "fee": "Needs confirmation",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Network specifically for women who own marketing and creative agencies."
+    },
+    {
+      "id": "collective-visibility",
+      "name": "Collective Visibility",
+      "description": "Sports Focused: Connects professionals with speaking opportunities and media exposure.",
+      "url": "https://collectivevisibility.org",
+      "categories": [
+        "Speaking"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        35
+      ],
+      "pathways": [
+        "speaking"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Sports Focused: Connects professionals with speaking opportunities and media exposure."
+    },
+    {
+      "id": "speakerhub",
+      "name": "SpeakerHub",
+      "description": "Global platform connecting speakers with event organizers across industries.",
+      "url": "https://speakerhub.com",
+      "categories": [
+        "Speaking"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        36
+      ],
+      "pathways": [
+        "speaking"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Global",
+      "goodFor": "Global platform connecting speakers with event organizers across industries."
+    },
+    {
+      "id": "espeakers",
+      "name": "eSpeakers",
+      "description": "Marketplace for professional speakers to get booked for corporate and conference events.",
+      "url": "https://espeakers.com",
+      "categories": [
+        "Speaking"
+      ],
+      "notes": [],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        37
+      ],
+      "pathways": [
+        "speaking"
+      ],
+      "fee": "Paid",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Marketplace for professional speakers to get booked for corporate and conference events."
+    },
+    {
+      "id": "pavilion",
+      "name": "Pavilion",
+      "description": "Community for revenue leaders (CRO, CMO, VP Sales) focused on peer learning and career growth.",
+      "url": "https://joinpavilion.com",
+      "categories": [
+        "Executive / leadership"
+      ],
+      "notes": [],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        39
+      ],
+      "pathways": [
+        "executive"
+      ],
+      "fee": "Paid",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for revenue leaders (CRO, CMO, VP Sales) focused on peer learning and career growth."
+    },
+    {
+      "id": "ypo",
+      "name": "YPO",
+      "description": "Global leadership community for CEOs and business owners under 45.",
+      "url": "https://ypo.org",
+      "categories": [
+        "Executive / leadership"
+      ],
+      "notes": [
+        "Referral and application required"
+      ],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "Yes"
+      ],
+      "sourceRows": [
+        40
+      ],
+      "pathways": [
+        "founders",
+        "executive"
+      ],
+      "fee": "Paid",
+      "referral": "Referral / invite required",
+      "location": "Global",
+      "goodFor": "Global leadership community for CEOs and business owners under 45."
+    },
+    {
+      "id": "eo-entrepreneurs-organization",
+      "name": "EO (Entrepreneurs' Organization)",
+      "description": "Peer network for entrepreneurs to learn and grow through shared experience.",
+      "url": "https://eonetwork.org",
+      "categories": [
+        "Executive / leadership"
+      ],
+      "notes": [],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "Yes"
+      ],
+      "sourceRows": [
+        41
+      ],
+      "pathways": [
+        "founders",
+        "executive"
+      ],
+      "fee": "Paid",
+      "referral": "Referral / invite required",
+      "location": "Not specified",
+      "goodFor": "Peer network for entrepreneurs to learn and grow through shared experience."
+    },
+    {
+      "id": "founders-network",
+      "name": "Founders Network",
+      "description": "Peer mentorship network for tech startup founders to share insights and support.",
+      "url": "https://foundersnetwork.com",
+      "categories": [
+        "Entrepreneurship / founders"
+      ],
+      "notes": [],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        43
+      ],
+      "pathways": [
+        "founders"
+      ],
+      "fee": "Paid",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Peer mentorship network for tech startup founders to share insights and support."
+    },
+    {
+      "id": "all-raise",
+      "name": "All Raise",
+      "description": "Nonprofit accelerating the success of female founders and funders in venture-backed tech.",
+      "url": "https://allraise.org",
+      "categories": [
+        "Entrepreneurship / founders",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        44
+      ],
+      "pathways": [
+        "founders",
+        "women"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Nonprofit accelerating the success of female founders and funders in venture-backed tech."
+    },
+    {
+      "id": "female-founders-alliance",
+      "name": "Female Founders Alliance",
+      "description": "Community supporting women entrepreneurs with resources, community, and advocacy.",
+      "url": "https://femalefounders.org",
+      "categories": [
+        "Entrepreneurship / founders",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        45,
+        69
+      ],
+      "pathways": [
+        "founders",
+        "women"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community supporting women entrepreneurs with resources, community, and advocacy."
+    },
+    {
+      "id": "nawbo",
+      "name": "NAWBO",
+      "description": "National Association of Women Business Owners — supporting women entrepreneurs nationwide.",
+      "url": "https://nawbo.org",
+      "categories": [
+        "Entrepreneurship / founders",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        46,
+        70
+      ],
+      "pathways": [
+        "founders",
+        "women"
+      ],
+      "fee": "Paid",
+      "referral": "No referral listed",
+      "location": "Nationwide (country not specified)",
+      "goodFor": "National Association of Women Business Owners — supporting women entrepreneurs nationwide."
+    },
+    {
+      "id": "cfo-connect",
+      "name": "CFO Connect",
+      "description": "Global community for CFOs and finance leaders to share knowledge and best practices.",
+      "url": "https://cfoconnect.eu",
+      "categories": [
+        "Finance / investing"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        48
+      ],
+      "pathways": [
+        "executive"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Global",
+      "goodFor": "Global community for CFOs and finance leaders to share knowledge and best practices."
+    },
+    {
+      "id": "women-who-invest",
+      "name": "Women Who Invest",
+      "description": "Community supporting women interested in investing and building financial literacy.",
+      "url": "https://women-who-invest.com",
+      "categories": [
+        "Finance / investing",
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        49,
+        72
+      ],
+      "pathways": [
+        "women"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community supporting women interested in investing and building financial literacy."
+    },
+    {
+      "id": "financeconnect",
+      "name": "FinanceConnect",
+      "description": "Network for finance professionals across industries to connect and share opportunities.",
+      "url": "https://financeconnect.io",
+      "categories": [
+        "Finance / investing"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        50
+      ],
+      "pathways": [],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Network for finance professionals across industries to connect and share opportunities."
+    },
+    {
+      "id": "the-old-girls-club",
+      "name": "The Old Girls Club",
+      "description": "Curated professional network for accomplished women to connect, collaborate, and support each other.",
+      "url": "https://jointheogc.com",
+      "categories": [
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        53
+      ],
+      "pathways": [
+        "women"
+      ],
+      "fee": "Paid",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Curated professional network for accomplished women to connect, collaborate, and support each other."
+    },
+    {
+      "id": "women-in-revenue",
+      "name": "Women in Revenue",
+      "description": "Community for women in sales, marketing, and revenue roles to share resources and advance careers.",
+      "url": "https://womeninrevenue.org",
+      "categories": [
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        54
+      ],
+      "pathways": [
+        "marketing",
+        "women"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "Community for women in sales, marketing, and revenue roles to share resources and advance careers."
+    },
+    {
+      "id": "work-like-a-girl",
+      "name": "Work Like A Girl",
+      "description": "Work Like A Girl is a community of professional women supporting each other as they navigate the opportunities and challenges of life at work.",
+      "url": "https://www.worklikeagirl.com",
+      "categories": [
+        "Women-focused"
+      ],
+      "notes": [],
+      "fees": [],
+      "referrals": [],
+      "sourceRows": [
+        55
+      ],
+      "pathways": [
+        "women"
+      ],
+      "fee": "Not specified",
+      "referral": "Not specified",
+      "location": "Not specified",
+      "goodFor": "Work Like A Girl is a community of professional women supporting each other as they navigate the opportunities and challenges of life at work."
+    },
+    {
+      "id": "wonderwomen",
+      "name": "WonderWomen",
+      "description": "For women leaders: Private curated dinners in key markets.",
+      "url": "https://wonderwomen.hatchery.vc",
+      "categories": [
+        "Women-focused"
+      ],
+      "notes": [
+        "Cost is per dinner"
+      ],
+      "fees": [
+        "Paid"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        56
+      ],
+      "pathways": [
+        "women",
+        "executive"
+      ],
+      "fee": "Paid",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "For women leaders: Private curated dinners in key markets."
+    },
+    {
+      "id": "at-dawn",
+      "name": "At- Dawn",
+      "description": "At Dawn creates unexpected introductions between women who might never otherwise meet — across industries, generations, career stages and life experiences.",
+      "url": "https://at-dawn.com",
+      "categories": [
+        "Women-focused"
+      ],
+      "notes": [
+        "Limited spots (for now)"
+      ],
+      "fees": [
+        "Free"
+      ],
+      "referrals": [
+        "No"
+      ],
+      "sourceRows": [
+        57
+      ],
+      "pathways": [
+        "women"
+      ],
+      "fee": "Free",
+      "referral": "No referral listed",
+      "location": "Not specified",
+      "goodFor": "At Dawn creates unexpected introductions between women who might never otherwise meet — across industries, generations, career stages and life experiences."
+    }
+  ]
+}
