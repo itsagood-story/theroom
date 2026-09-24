@@ -78,9 +78,9 @@ img { max-width: 100%; }
   background-color: var(--cream);
   background-image:
     linear-gradient(180deg, rgba(255,255,252,.55) 0%, rgba(255,255,252,.72) 55%, rgba(255,255,252,1) 100%),
-    url("https://static.showit.co/1600/8OErMLTHHeC1MRKb_VCXww/259108/pexels-dariabuntaria-7236824_1.jpg");
+    url("https://static.showit.co/1600/qY-n5JiScgAGJfdagwA5kQ/259108/goodstory-vision-brand-strategy.jpg");
   background-size: cover;
-  background-position: center 38%;
+  background-position: center 45%;
 }
 .hero__title {
   margin: 0;
