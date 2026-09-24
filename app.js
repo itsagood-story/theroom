@@ -1,144 +1,240 @@
-'use strict';
-(() => {
-  const $ = selector => document.querySelector(selector);
-  const controls = ['category', 'fee', 'referral', 'location'];
-  const results = $('#results');
-  const dialog = $('#detail');
-  let communities = [];
-  let pathway = 'all';
-  let returnFocus = null;
-  const el = (tag, className, text) => {
-    const node = document.createElement(tag);
-    if (className) node.className = className;
-    if (text !== undefined) node.textContent = text;
-    return node;
+/* The Room — search, filters, and rendering.
+   Data lives in communities.json. Edit that file; nothing here needs to change. */
+(function () {
+  "use strict";
+
+  // Section order on the page. Any category not listed here is added at the end.
+  var ORDER = [
+    "Fractional",
+    "Marketing and strategy",
+    "Comms and PR",
+    "Agency owners",
+    "Founders",
+    "Executive and leadership",
+    "Speaking",
+    "Tech",
+    "Retail and ecommerce",
+    "CPG",
+    "HR and recruiting",
+    "Finance and investing",
+    "General professional"
+  ];
+
+  var FEE = { free: "Free", paid: "Paid", unknown: "Fee not listed" };
+  var JOIN = { open: "Open to join", referral: "Referral or invite", unknown: "Joining details not listed" };
+
+  var state = { q: "", women: false, free: false, open: false, cat: "" };
+  var groups = [];
+  var categories = [];
+
+  var el = {
+    q: document.getElementById("q"),
+    cats: document.getElementById("cats"),
+    count: document.getElementById("count"),
+    results: document.getElementById("results"),
+    empty: document.getElementById("empty"),
+    clear: document.getElementById("clear"),
+    toggles: document.querySelectorAll("[data-toggle]")
   };
-  const safeURL = value => {
-    try { const url = new URL(value); return ['https:', 'http:'].includes(url.protocol) ? url.href : null; }
-    catch { return null; }
-  };
-  const normalize = text => String(text).normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
-  function matches(record) {
-    const terms = normalize($('#search').value).trim().split(/\s+/).filter(Boolean);
-    const searchable = normalize([record.name, record.description, ...record.categories, ...record.notes, record.location, record.fee, record.referral].join(' '));
-    return terms.every(term => searchable.includes(term)) &&
-      (['all', 'industry'].includes(pathway) || record.pathways.includes(pathway)) &&
-      controls.every(key => !$('#' + key).value || (key === 'category' ? record.categories.includes($('#' + key).value) : record[key] === $('#' + key).value));
+
+  function h(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
   }
-  function saveState() {
-    const url = new URL(location.href);
-    ['q', 'path', ...controls].forEach(key => url.searchParams.delete(key));
-    if ($('#search').value.trim()) url.searchParams.set('q', $('#search').value.trim());
-    if (pathway !== 'all') url.searchParams.set('path', pathway);
-    controls.forEach(key => { if ($('#' + key).value) url.searchParams.set(key, $('#' + key).value); });
-    history.replaceState(null, '', url);
-  }
-  function render(updateURL = true) {
-    const visible = communities.filter(matches);
-    $('#result-count').textContent = `${visible.length} ${visible.length === 1 ? 'community' : 'communities'}${visible.length !== communities.length ? ` of ${communities.length}` : ' to explore'}`;
-    results.replaceChildren();
-    $('#pathways').querySelectorAll('button').forEach(button => button.setAttribute('aria-pressed', String(button.dataset.path === pathway)));
-    visible.forEach(record => {
-      const article = el('article', 'community');
-      const content = el('div');
-      content.append(el('div', 'category-line', record.categories.join(' / ')));
-      const heading = el('h3');
-      const title = el('button', '', record.name);
-      title.type = 'button'; title.dataset.room = record.id;
-      title.addEventListener('click', () => openDetail(record, title));
-      heading.append(title); content.append(heading);
-      if (record.description) content.append(el('p', 'description', record.description));
-      const meta = el('div', 'meta');
-      meta.append(el('span', record.fee === 'Free' ? 'free' : '', record.fee === 'Not specified' ? 'Cost not specified' : record.fee));
-      if (record.referral === 'Referral / invite required') meta.append(el('span', '', 'Referral / invite'));
-      if (record.location !== 'Not specified') meta.append(el('span', '', record.location));
-      content.append(meta);
-      if (record.notes.length) {
-        const note = el('p', 'gina-note');
-        note.append(el('strong', '', 'Gina’s take'), document.createTextNode(record.notes.join(' ')));
-        content.append(note);
-      }
-      const arrow = el('button', 'open-detail', '↗');
-      arrow.type = 'button'; arrow.setAttribute('aria-label', `Read about ${record.name}`);
-      arrow.addEventListener('click', () => openDetail(record, arrow));
-      article.append(content, arrow); results.append(article);
-    });
-    if (!visible.length) {
-      const empty = el('div', 'empty');
-      empty.append(el('h3', '', 'Let’s find another connection.'), el('p', '', 'No communities match this combination. Try a different search or clear your filters.'));
-      const reset = el('button', 'button', 'Explore every community'); reset.type = 'button'; reset.addEventListener('click', resetFilters);
-      empty.append(reset); results.append(empty);
-    }
-    if (updateURL) saveState();
-  }
-  function resetFilters() {
-    $('#filters').reset(); pathway = 'all'; render();
-  }
-  function openDetail(record, trigger) {
-    returnFocus = trigger || document.activeElement;
-    const content = $('#detail-content'); content.replaceChildren();
-    content.append(el('p', 'category-line', record.categories.join(' / ')));
-    const heading = el('h2', '', record.name); heading.id = 'detail-title'; content.append(heading);
-    if (record.description) content.append(el('p', 'detail-description', record.description));
-    const take = el('section', 'take');
-    take.append(el('div', 'eyebrow', 'Gina’s take'), el('p', '', record.notes.join(' ') || 'Gina hasn’t added a note yet.'));
-    content.append(take);
-    const list = el('dl');
-    const fee = record.fee === 'Needs confirmation' ? 'Needs confirmation — the directory lists both Free and Paid.' : record.fee;
-    [['Good for', record.goodFor], ['Location', record.location], ['Cost', fee], ['Access', record.referral]].forEach(([label, value]) => {
-      const row = el('div'); row.append(el('dt', '', label), el('dd', '', value)); list.append(row);
-    });
-    content.append(list);
-    const url = safeURL(record.url);
-    if (url) {
-      const link = el('a', 'button', 'Visit community ↗'); link.href = url; link.target = '_blank'; link.rel = 'noopener noreferrer'; content.append(link);
-    } else content.append(el('p', '', 'A website link hasn’t been added for this community.'));
-    content.append(el('p', 'small detail-source', 'From Gina’s collected directory. Confirm current costs and access requirements with the community.'));
-    if (!dialog.open) dialog.showModal();
-    $('#close-detail').focus();
-    const urlState = new URL(location.href); urlState.searchParams.set('room', record.id); history.replaceState(null, '', urlState);
-  }
-  dialog.addEventListener('close', () => {
-    const url = new URL(location.href); url.searchParams.delete('room'); history.replaceState(null, '', url);
-    if (returnFocus?.isConnected) returnFocus.focus();
-  });
-  $('#close-detail').addEventListener('click', () => dialog.close());
-  dialog.addEventListener('click', event => {
-    const bounds = dialog.getBoundingClientRect();
-    if (event.target === dialog && (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom)) dialog.close();
-  });
-  $('#filters').addEventListener('submit', event => event.preventDefault());
-  $('#search').addEventListener('input', () => render());
-  controls.forEach(key => $('#' + key).addEventListener('change', () => render()));
-  $('#clear').addEventListener('click', resetFilters);
-  $('#pathways').addEventListener('click', event => {
-    const button = event.target.closest('button[data-path]');
-    if (!button) return;
-    pathway = button.dataset.path; render();
-    if (pathway === 'industry') $('#category').focus();
-  });
-  async function load() {
+
+  function safeUrl(u) {
+    if (!u) return null;
     try {
-      const response = await fetch('communities.json');
-      if (!response.ok) throw new Error('Data unavailable');
-      const data = await response.json();
-      if (!Array.isArray(data.communities)) throw new Error('Invalid directory');
-      communities = data.communities;
-      controls.forEach(key => {
-        const values = [...new Set(communities.flatMap(record => key === 'category' ? record.categories : [record[key]]))].sort();
-        values.forEach(value => { const option = el('option', '', value); option.value = value; $('#' + key).append(option); });
-      });
-      const params = new URL(location.href).searchParams;
-      $('#search').value = params.get('q') || '';
-      if ([...$('#pathways').querySelectorAll('button')].some(button => button.dataset.path === params.get('path'))) pathway = params.get('path');
-      controls.forEach(key => { if ([...$('#' + key).options].some(option => option.value === params.get(key))) $('#' + key).value = params.get(key); });
-      render(false);
-      const record = communities.find(item => item.id === params.get('room'));
-      if (record) openDetail(record);
-    } catch (error) {
-      $('#result-count').textContent = 'The directory couldn’t open.';
-      results.replaceChildren(el('p', 'empty error', 'Please reload this page to try again. If you’re viewing a downloaded copy, open it using the local preview instructions in the README.'));
-    }
+      var p = new URL(u.trim());
+      return p.protocol === "https:" || p.protocol === "http:" ? p.href : null;
+    } catch (e) { return null; }
   }
-  load();
+
+  function norm(s) {
+    return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[’']/g, "");
+  }
+
+  function haystack(g) {
+    return norm([g.name, g.description, g.note, g.categories.join(" "), g.women ? "women women-focused" : "", FEE[g.fee], JOIN[g.joining]].join(" "));
+  }
+
+  function matches(g) {
+    if (state.women && !g.women) return false;
+    if (state.free && g.fee !== "free") return false;
+    if (state.open && g.joining !== "open") return false;
+    if (state.cat && g.categories.indexOf(state.cat) === -1) return false;
+    if (state.q) {
+      var terms = norm(state.q).split(/\s+/).filter(Boolean);
+      for (var i = 0; i < terms.length; i++) if (g._hay.indexOf(terms[i]) === -1) return false;
+    }
+    return true;
+  }
+
+  function renderGroup(g, idx) {
+    var row = h("article", "group");
+    row.id = g.id;
+
+    row.appendChild(h("span", "group__idx", String(idx).padStart(2, "0")));
+
+    var main = h("div", "group__main");
+    var name = h("h3", "group__name");
+    var url = safeUrl(g.url);
+    if (url) {
+      var a = h("a", null, g.name);
+      a.href = url;
+      a.target = "_blank";
+      a.rel = "noopener";
+      var arrow = h("span", "arrow", "↗");
+      arrow.setAttribute("aria-hidden", "true");
+      a.appendChild(arrow);
+      var sr = h("span", "visually-hidden", " (opens in a new tab)");
+      a.appendChild(sr);
+      name.appendChild(a);
+    } else {
+      name.textContent = g.name;
+    }
+    main.appendChild(name);
+
+    if (g.description) main.appendChild(h("p", "group__desc", g.description));
+    if (g.note) main.appendChild(h("p", "group__note", g.note));
+    if (!url) main.appendChild(h("p", "group__nolink", "No public link."));
+    row.appendChild(main);
+
+    var tags = h("ul", "tags");
+    tags.setAttribute("aria-label", "Details");
+    tags.appendChild(h("li", "tag tag--" + g.fee, FEE[g.fee]));
+    tags.appendChild(h("li", "tag tag--" + g.joining, JOIN[g.joining]));
+    if (g.women) tags.appendChild(h("li", "tag tag--women", "Women-focused"));
+    // The first category is the section heading; show any others as tags.
+    g.categories.slice(1).forEach(function (c) { tags.appendChild(h("li", "tag", c)); });
+    row.appendChild(tags);
+
+    return row;
+  }
+
+  function render() {
+    var shown = groups.filter(matches);
+    var total = groups.length;
+    var filtered = state.q || state.women || state.free || state.open || state.cat;
+
+    el.count.textContent = filtered
+      ? "Showing " + shown.length + " of " + total + " groups"
+      : total + " groups";
+    if (filtered && shown.length) {
+      var reset = h("button", "link-button count__clear", "Clear filters");
+      reset.type = "button";
+      reset.addEventListener("click", clearAll);
+      el.count.appendChild(reset);
+    }
+
+    el.results.textContent = "";
+    el.empty.hidden = shown.length > 0;
+
+    var n = 0;
+    categories.forEach(function (cat) {
+      var inCat = shown.filter(function (g) { return g.categories[0] === cat; });
+      if (!inCat.length) return;
+      var sec = h("section", "section");
+      var head = h("div", "section__head");
+      head.appendChild(h("h2", "section__title", cat));
+      head.appendChild(h("span", "section__n", inCat.length + (inCat.length === 1 ? " group" : " groups")));
+      sec.appendChild(head);
+      inCat.forEach(function (g) { sec.appendChild(renderGroup(g, ++n)); });
+      el.results.appendChild(sec);
+    });
+
+    syncControls();
+    writeUrl();
+  }
+
+  function syncControls() {
+    el.toggles.forEach(function (b) { b.setAttribute("aria-pressed", String(!!state[b.dataset.toggle])); });
+    el.cats.querySelectorAll(".cat").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.cat === state.cat)); });
+    if (el.q.value !== state.q) el.q.value = state.q;
+  }
+
+  function writeUrl() {
+    var p = new URLSearchParams();
+    if (state.q) p.set("q", state.q);
+    if (state.women) p.set("women", "1");
+    if (state.free) p.set("free", "1");
+    if (state.open) p.set("open", "1");
+    if (state.cat) p.set("focus", state.cat);
+    var qs = p.toString();
+    try { history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash); } catch (e) {}
+  }
+
+  function readUrl() {
+    var p = new URLSearchParams(location.search);
+    state.q = p.get("q") || "";
+    state.women = p.get("women") === "1";
+    state.free = p.get("free") === "1";
+    state.open = p.get("open") === "1";
+    var f = p.get("focus") || "";
+    state.cat = categories.indexOf(f) > -1 ? f : "";
+  }
+
+  function buildCats() {
+    var all = h("button", "cat", "All");
+    all.type = "button";
+    all.dataset.cat = "";
+    el.cats.appendChild(all);
+    categories.forEach(function (c) {
+      var b = h("button", "cat", c);
+      b.type = "button";
+      b.dataset.cat = c;
+      el.cats.appendChild(b);
+    });
+    el.cats.addEventListener("click", function (e) {
+      var b = e.target.closest(".cat");
+      if (!b) return;
+      state.cat = b.dataset.cat;
+      render();
+    });
+  }
+
+  function clearAll() {
+    state = { q: "", women: false, free: false, open: false, cat: "" };
+    render();
+    el.q.focus();
+  }
+
+  function init(data) {
+    groups = (data.groups || []).map(function (g) {
+      g.categories = g.categories || [];
+      g.fee = FEE[g.fee] ? g.fee : "unknown";
+      g.joining = JOIN[g.joining] ? g.joining : "unknown";
+      g._hay = haystack(g);
+      return g;
+    });
+
+    var seen = {};
+    groups.forEach(function (g) { g.categories.forEach(function (c) { seen[c] = true; }); });
+    categories = ORDER.filter(function (c) { return seen[c]; })
+      .concat(Object.keys(seen).filter(function (c) { return ORDER.indexOf(c) === -1; }));
+
+    buildCats();
+    readUrl();
+    render();
+
+    var t;
+    el.q.addEventListener("input", function () {
+      clearTimeout(t);
+      t = setTimeout(function () { state.q = el.q.value.trim(); render(); }, 120);
+    });
+    el.toggles.forEach(function (b) {
+      b.addEventListener("click", function () { state[b.dataset.toggle] = !state[b.dataset.toggle]; render(); });
+    });
+    el.clear.addEventListener("click", clearAll);
+  }
+
+  fetch("communities.json", { cache: "no-cache" })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+    .then(init)
+    .catch(function () {
+      el.count.textContent = "";
+      el.results.appendChild(h("p", "group__desc--missing", "The list didn’t load. Refresh the page, or email gina@itsagoodstory.com and I’ll send it over."));
+    });
 })();
