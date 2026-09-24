@@ -68,10 +68,19 @@ img { max-width: 100%; }
 .masthead__cta:hover { color: var(--red); }
 
 /* Hero */
-.hero {
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: clamp(56px, 10vw, 128px) var(--gutter) clamp(56px, 8vw, 104px);
+.hero { padding-bottom: clamp(56px, 8vw, 104px); }
+.hero__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+/* Photo served from the itsagoodstory.com (Showit) image CDN, under a cream wash so the blue headline stays crisp.
+   To host a copy here instead, add room-hero.jpg to the repo and swap the URL for "room-hero.jpg". */
+.hero__banner {
+  position: relative;
+  padding: clamp(120px, 16vw, 240px) 0 clamp(56px, 7vw, 96px);
+  background-color: var(--cream);
+  background-image:
+    linear-gradient(180deg, rgba(255,255,252,.55) 0%, rgba(255,255,252,.72) 55%, rgba(255,255,252,1) 100%),
+    url("https://static.showit.co/1600/8OErMLTHHeC1MRKb_VCXww/259108/pexels-dariabuntaria-7236824_1.jpg");
+  background-size: cover;
+  background-position: center 38%;
 }
 .hero__title {
   margin: 0;
@@ -95,10 +104,10 @@ img { max-width: 100%; }
   display: grid;
   grid-template-columns: 5fr 6fr;
   gap: clamp(28px, 6vw, 96px);
-  margin-top: clamp(48px, 7vw, 96px);
-  padding-top: 28px;
-  border-top: 1px solid var(--ink);
+  margin-top: clamp(24px, 4vw, 48px);
 }
+.hero__body > * { padding-top: 28px; }
+.hero__inner.hero__body { background: linear-gradient(var(--ink), var(--ink)) var(--gutter) 0 / calc(100% - 2 * var(--gutter)) 1px no-repeat; }
 .hero__lede {
   margin: 0;
   font-family: var(--serif);
