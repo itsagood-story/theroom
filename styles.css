@@ -372,3 +372,4 @@ img { max-width: 100%; }
 .masthead__cta { color: #fff; }
 .masthead__cta:hover { color: var(--lavender); }
 .hero__intro .hero__find { color: var(--blue); }
+.hero__banner .hero__inner { text-align: center; }
