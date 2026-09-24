@@ -14,6 +14,7 @@ Plain HTML, CSS, and JavaScript. No build step, no tracking, no database.
 | `communities.json` | The list itself. This is the only file you edit to add or change a group |
 | `DATA-REVIEW.md` | Open questions from the source spreadsheet |
 | `goodstory-wordmark.png`, `goodstory-peace.png`, `goodstory-badge.png` | Brand marks |
+| `icon-substack.png`, `icon-linkedin.png` | "Follow us" icons in the footer |
 | `*.woff` | PP Editorial New Ultralight (+ italic) and PP Neue Montreal Book/Medium, web-compressed |
 
 ## Add or edit a group
