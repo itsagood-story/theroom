@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Networking groups worth your time | Goodstory</title>
+  <meta name="description" content="A curated list of professional communities for marketers, founders, fractional executives, and women in business. Filter by focus, cost, and how to get in.">
+  <meta property="og:title" content="The Room: Where to find your people">
+  <meta property="og:description" content="A curated list of professional communities for marketers, founders, fractional executives, and women in business. Filter by focus, cost, and how to get in.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+  <meta name="robots" content="noindex, nofollow">
+  <link rel="icon" type="image/png" href="goodstory-peace.png">
+  <link rel="preload" href="editorial-new-ultralight.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="neue-montreal-book.woff" as="font" type="font/woff" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#list">Skip to the list</a>
+
+  <header class="masthead">
+    <a class="masthead__peace" href="https://itsagoodstory.com/" target="_blank" rel="noopener" aria-label="Goodstory home">
+      <span class="peace" aria-hidden="true"></span>
+    </a>
+    <a class="masthead__wordmark" href="https://itsagoodstory.com/" target="_blank" rel="noopener" aria-label="Goodstory">
+      <span class="wordmark" aria-hidden="true"></span>
+    </a>
+    <a class="masthead__cta" href="https://itsagoodstory.com/contact-goodstory" target="_blank" rel="noopener">Get in touch</a>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="title">
+      <div class="hero__banner">
+        <div class="hero__inner">
+          <h1 id="title" class="hero__title">The Room.</h1>
+          <p class="hero__sub">Where to find your people.</p>
+        </div>
+      </div>
+
+      <div class="hero__intro">
+      <div class="hero__inner hero__body">
+        <p class="hero__lede">People keep asking me which communities are worth joining. This is the list I send.</p>
+        <div class="hero__copy">
+          <p>It covers founders, marketers, fractional leaders, creatives, and executives. Some groups are free, some aren’t, and a few won’t let you in without an introduction.</p>
+          <p>I’m in some of them. The rest came from people whose judgment I trust. Nobody paid to be here.</p>
+          <p>The list was stuck in a spreadsheet only I could open. So I built The Room to share it.</p>
+          <a class="hero__find" href="#list">Find yours. <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <section id="list" class="directory" aria-label="Networking groups">
+      <div class="controls" role="search">
+        <div class="controls__row">
+          <label class="search">
+            <span class="visually-hidden">Search by name or topic</span>
+            <input id="q" type="search" placeholder="Search by name or topic" autocomplete="off">
+          </label>
+          <div class="toggles" role="group" aria-label="Filters">
+            <button type="button" class="toggle" data-toggle="women" aria-pressed="false">Women-focused</button>
+            <button type="button" class="toggle" data-toggle="free" aria-pressed="false">Free</button>
+            <button type="button" class="toggle" data-toggle="open" aria-pressed="false">Open to join</button>
+          </div>
+        </div>
+        <div class="cats" role="group" aria-label="Focus" id="cats"></div>
+        <p class="count" id="count" aria-live="polite"></p>
+      </div>
+
+      <div id="results"></div>
+
+      <div class="empty" id="empty" hidden>
+        <p>No groups match these filters.</p>
+        <button type="button" class="link-button" id="clear">Clear filters</button>
+      </div>
+    </section>
+
+    <section class="byou" aria-labelledby="byou-title">
+      <div class="byou__inner">
+        <p class="eyebrow">Brand of You</p>
+        <h2 id="byou-title" class="byou__title">You can’t be in every room. <em>Your story can.</em></h2>
+        <div class="byou__copy">
+          <p>This list can help you find the right room. The real test comes later, in the rooms you’re not in.</p>
+          <p>Someone says, “You should talk to...” and has to explain why. Figure out what you’re known for. Build the story around it. Make it easy for other people to carry.</p>
+          <a class="button" href="https://itsagoodstory.com/services-storytelling-brand-of-you" target="_blank" rel="noopener">See how Brand of You works</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__top">
+      <div>
+        <h2 class="footer__title">Know a room that belongs here?</h2>
+        <p class="footer__sub">Send it over. If it’s good, it goes on the list.</p>
+        <a class="button button--blue" href="mailto:gina@itsagoodstory.com?subject=A%20room%20for%20the%20list">Suggest a group</a>
+      </div>
+      <img class="badge" src="goodstory-badge.png" alt="" width="480" height="480">
+    </div>
+    <div class="footer__bar">
+      <div class="follow">
+        <span class="follow__label">Follow us:</span>
+        <a href="https://goodstory.substack.com/" target="_blank" rel="noopener" aria-label="Goodstory on Substack (opens in a new tab)">
+          <img src="icon-substack.png" alt="" width="84" height="96" class="follow__icon follow__icon--substack">
+        </a>
+        <a href="https://www.linkedin.com/company/itsagoodstory/" target="_blank" rel="noopener" aria-label="Goodstory on LinkedIn (opens in a new tab)">
+          <img src="icon-linkedin.png" alt="" width="120" height="102" class="follow__icon follow__icon--linkedin">
+        </a>
+      </div>
+    </div>
+    <div class="footer__base">
+      <p>Curated by Gina Clementi, founder of Goodstory, a brand strategy consultancy.</p>
+      <p>© 2026 Clementi Consulting LLC</p>
+    </div>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

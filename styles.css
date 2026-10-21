@@ -377,3 +377,11 @@ img { max-width: 100%; }
 /* Flodesk sign-up form, in its own blue band after Brand of You */
 .signup { background: var(--blue); }
 .signup__inner { max-width: 760px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) var(--gutter); }
+
+/* Landing page: what's inside teaser */
+.inside__inner { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter) clamp(56px, 8vw, 104px); }
+.eyebrow--blue { color: var(--blue); margin-bottom: 14px; }
+.inside__title { margin: 0; max-width: 18em; font-family: var(--serif); font-weight: 200; font-size: clamp(34px, 4.6vw, 60px); line-height: 1.04; color: var(--blue); }
+.inside__copy { margin: 20px 0 0; max-width: 34em; font-size: 18px; }
+.inside__cats { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 28px 0 0; padding: 0; }
+.inside__cats li { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; padding: 8px 12px; border: 1px solid var(--blue); border-radius: 999px; color: var(--blue); }

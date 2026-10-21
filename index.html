@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Networking groups worth your time | Goodstory</title>
+  <title>The Room: networking groups worth your time | Goodstory</title>
   <meta name="description" content="A curated list of professional communities for marketers, founders, fractional executives, and women in business. Filter by focus, cost, and how to get in.">
   <meta property="og:title" content="The Room: Where to find your people">
   <meta property="og:description" content="A curated list of professional communities for marketers, founders, fractional executives, and women in business. Filter by focus, cost, and how to get in.">
@@ -36,7 +36,7 @@
   </script>
 </head>
 <body>
-  <a class="skip" href="#list">Skip to the list</a>
+  <a class="skip" href="#get-it">Skip to the sign-up</a>
 
   <header class="masthead">
     <a class="masthead__peace" href="https://itsagoodstory.com/" target="_blank" rel="noopener" aria-label="Goodstory home">
@@ -64,49 +64,22 @@
           <p>It covers founders, marketers, fractional leaders, creatives, and executives. Some groups are free, some aren’t, and a few won’t let you in without an introduction.</p>
           <p>I’m in some of them. The rest came from people whose judgment I trust. Nobody paid to be here.</p>
           <p>The list was stuck in a spreadsheet only I could open. So I built The Room to share it.</p>
-          <a class="hero__find" href="#list">Find yours. <span aria-hidden="true">↓</span></a>
+          <a class="hero__find" href="#get-it">Find yours. <span aria-hidden="true">↓</span></a>
         </div>
       </div>
       </div>
     </section>
 
-    <section id="list" class="directory" aria-label="Networking groups">
-      <div class="controls" role="search">
-        <div class="controls__row">
-          <label class="search">
-            <span class="visually-hidden">Search by name or topic</span>
-            <input id="q" type="search" placeholder="Search by name or topic" autocomplete="off">
-          </label>
-          <div class="toggles" role="group" aria-label="Filters">
-            <button type="button" class="toggle" data-toggle="women" aria-pressed="false">Women-focused</button>
-            <button type="button" class="toggle" data-toggle="free" aria-pressed="false">Free</button>
-            <button type="button" class="toggle" data-toggle="open" aria-pressed="false">Open to join</button>
-          </div>
-        </div>
-        <div class="cats" role="group" aria-label="Focus" id="cats"></div>
-        <p class="count" id="count" aria-live="polite"></p>
-      </div>
-
-      <div id="results"></div>
-
-      <div class="empty" id="empty" hidden>
-        <p>No groups match these filters.</p>
-        <button type="button" class="link-button" id="clear">Clear filters</button>
+    <section class="inside" aria-labelledby="inside-title">
+      <div class="inside__inner">
+        <p class="eyebrow eyebrow--blue">What’s inside</p>
+        <h2 id="inside-title" class="inside__title"><span id="inside-count">Dozens of</span> groups, sorted so you can find the right one fast.</h2>
+        <p class="inside__copy">Each one is tagged by what it costs, how to get in, and who it’s for, with my notes where I have them. Search it, filter it, come back to it whenever you need a new room.</p>
+        <ul class="inside__cats" id="inside-cats" aria-label="Focus areas"></ul>
       </div>
     </section>
 
-    <section class="byou" aria-labelledby="byou-title">
-      <div class="byou__inner">
-        <p class="eyebrow">Brand of You</p>
-        <h2 id="byou-title" class="byou__title">You can’t be in every room. <em>Your story can.</em></h2>
-        <div class="byou__copy">
-          <p>This list can help you find the right room. The real test comes later, in the rooms you’re not in.</p>
-          <p>Someone says, “You should talk to...” and has to explain why. Figure out what you’re known for. Build the story around it. Make it easy for other people to carry.</p>
-          <a class="button" href="https://itsagoodstory.com/services-storytelling-brand-of-you" target="_blank" rel="noopener">See how Brand of You works</a>
-        </div>
-      </div>
-    </section>
-    <section class="signup" aria-label="Get the intro">
+    <section class="signup" id="get-it" aria-label="Get The Room">
       <div class="signup__inner">
         <div id="fd-form-6ad8dcfd21298a131143dacb"></div>
         <script>
@@ -145,6 +118,16 @@
     </div>
   </footer>
 
-  <script src="app.js" defer></script>
+  <script>
+    // Fill the teaser from the live list so the count never goes stale.
+    fetch("communities.json", { cache: "no-cache" }).then(function (r) { return r.json(); }).then(function (d) {
+      var g = d.groups || [];
+      document.getElementById("inside-count").textContent = String(g.length);
+      var seen = [], ul = document.getElementById("inside-cats");
+      g.forEach(function (x) { (x.categories || []).forEach(function (c) { if (seen.indexOf(c) < 0) seen.push(c); }); });
+      if (g.some(function (x) { return x.women; })) seen.push("Women-focused");
+      seen.forEach(function (c) { var li = document.createElement("li"); li.textContent = c; ul.appendChild(li); });
+    }).catch(function () {});
+  </script>
 </body>
 </html>
