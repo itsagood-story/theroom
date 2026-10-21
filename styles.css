@@ -385,3 +385,29 @@ img { max-width: 100%; }
 .inside__copy { margin: 20px 0 0; max-width: 34em; font-size: 18px; }
 .inside__cats { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; margin: 28px 0 0; padding: 0; }
 .inside__cats li { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; padding: 8px 12px; border: 1px solid var(--blue); border-radius: 999px; color: var(--blue); }
+
+/* Soft gate on the list page */
+.gate { display: none; }
+.is-gated .directory { position: relative; }
+.is-gated .gate {
+  display: block;
+  position: absolute;
+  z-index: 15;
+  top: clamp(24px, 4vw, 56px);
+  left: var(--gutter);
+  right: var(--gutter);
+}
+.gate__card { max-width: 640px; margin: 0 auto; text-align: center; }
+.gate__card > div { box-shadow: 0 30px 80px rgba(29, 34, 48, .18); }
+.gate__fine { margin: 14px 0 0; font-size: 13px; color: var(--muted); background: var(--cream); display: inline-block; padding: 4px 10px; }
+.is-gated .directory__body {
+  height: 980px;
+  overflow: hidden;
+  filter: blur(7px);
+  opacity: .55;
+  pointer-events: none;
+  user-select: none;
+  -webkit-mask-image: linear-gradient(#000 45%, transparent);
+  mask-image: linear-gradient(#000 45%, transparent);
+}
+.is-gated .byou { display: none; }

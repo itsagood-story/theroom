@@ -14,6 +14,44 @@
   <link rel="preload" href="editorial-new-ultralight.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="neue-montreal-book.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    (function(w, d, t, h, s, n) {
+      w.FlodeskObject = n;
+      var fn = function() {
+        (w[n].q = w[n].q || []).push(arguments);
+      };
+      w[n] = w[n] || fn;
+      var f = d.getElementsByTagName(t)[0];
+      var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+      var sm = d.createElement(t);
+      sm.async = true;
+      sm.type = 'module';
+      sm.src = h + s + '.mjs' + v;
+      f.parentNode.insertBefore(sm, f);
+      var sn = d.createElement(t);
+      sn.async = true;
+      sn.noModule = true;
+      sn.src = h + s + '.js' + v;
+      f.parentNode.insertBefore(sn, f);
+    })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+  </script>
+  <script>
+    // Soft gate: decide before first paint whether this visitor is already "in".
+    (function () {
+      var KEY = "theroom_in";
+      var inside = false;
+      try { inside = localStorage.getItem(KEY) === "1"; } catch (e) {}
+      var p = new URLSearchParams(location.search);
+      if (p.get("in") === "1") {
+        inside = true;
+        try { localStorage.setItem(KEY, "1"); } catch (e) {}
+        p.delete("in");
+        var qs = p.toString();
+        try { history.replaceState(null, "", location.pathname + (qs ? "?" + qs : "") + location.hash); } catch (e) {}
+      }
+      if (!inside) document.documentElement.classList.add("is-gated");
+    })();
+  </script>
 </head>
 <body>
   <a class="skip" href="#list">Skip to the list</a>
@@ -51,6 +89,20 @@
     </section>
 
     <section id="list" class="directory" aria-label="Networking groups">
+      <div class="gate" id="gate" role="dialog" aria-modal="false" aria-labelledby="gate-title">
+        <div class="gate__card">
+          <h2 id="gate-title" class="visually-hidden">Sign up to open The Room</h2>
+          <div id="fd-form-6ad8dcfd21298a131143dacb"></div>
+          <script>
+            window.fd('form', {
+              formId: '6ad8dcfd21298a131143dacb',
+              containerEl: '#fd-form-6ad8dcfd21298a131143dacb'
+            });
+          </script>
+          <p class="gate__fine">Already signed up on another device? Use the link in your welcome email.</p>
+        </div>
+      </div>
+      <div class="directory__body">
       <div class="controls" role="search">
         <div class="controls__row">
           <label class="search">
@@ -72,6 +124,7 @@
       <div class="empty" id="empty" hidden>
         <p>No groups match these filters.</p>
         <button type="button" class="link-button" id="clear">Clear filters</button>
+      </div>
       </div>
     </section>
 
@@ -115,5 +168,39 @@
   </footer>
 
   <script src="app.js" defer></script>
+  <script>
+    // Unlock once the Flodesk form is submitted successfully.
+    (function () {
+      var root = document.documentElement;
+      if (!root.classList.contains("is-gated")) return;
+      var box = document.getElementById("fd-form-6ad8dcfd21298a131143dacb");
+      var done = false;
+      function unlock() {
+        if (done) return; done = true;
+        try { localStorage.setItem("theroom_in", "1"); } catch (e) {}
+        setTimeout(function () {
+          root.classList.remove("is-gated");
+          var c = document.getElementById("controls-start") || document.getElementById("list");
+          if (c) c.scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 1400);
+      }
+      // Flodesk swaps the form for its thank-you message after a successful submit.
+      var submitted = false;
+      box.addEventListener("submit", function (e) {
+        var f = e.target;
+        if (f && f.checkValidity && f.checkValidity()) {
+          submitted = true;
+          setTimeout(function () { if (submitted) unlock(); }, 4000); // fallback
+        }
+      }, true);
+      new MutationObserver(function () {
+        if (!submitted) return;
+        var f = box.querySelector("form");
+        var gone = !f || f.offsetParent === null || !box.querySelector("input[type=text], input[type=email]") ||
+          [].every.call(box.querySelectorAll("input[type=text], input[type=email]"), function (i) { return i.offsetParent === null; });
+        if (gone) unlock();
+      }).observe(box, { childList: true, subtree: true, attributes: true });
+    })();
+  </script>
 </body>
 </html>
