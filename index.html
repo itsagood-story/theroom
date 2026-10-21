@@ -13,6 +13,27 @@
   <link rel="preload" href="editorial-new-ultralight.woff" as="font" type="font/woff" crossorigin>
   <link rel="preload" href="neue-montreal-book.woff" as="font" type="font/woff" crossorigin>
   <link rel="stylesheet" href="styles.css">
+  <script>
+    (function(w, d, t, h, s, n) {
+      w.FlodeskObject = n;
+      var fn = function() {
+        (w[n].q = w[n].q || []).push(arguments);
+      };
+      w[n] = w[n] || fn;
+      var f = d.getElementsByTagName(t)[0];
+      var v = '?v=' + Math.floor(new Date().getTime() / (120 * 1000)) * 60;
+      var sm = d.createElement(t);
+      sm.async = true;
+      sm.type = 'module';
+      sm.src = h + s + '.mjs' + v;
+      f.parentNode.insertBefore(sm, f);
+      var sn = d.createElement(t);
+      sn.async = true;
+      sn.noModule = true;
+      sn.src = h + s + '.js' + v;
+      f.parentNode.insertBefore(sn, f);
+    })(window, document, 'script', 'https://assets.flodesk.com', '/universal', 'fd');
+  </script>
 </head>
 <body>
   <a class="skip" href="#list">Skip to the list</a>
@@ -83,6 +104,17 @@
           <p>Someone says, “You should talk to...” and has to explain why. Figure out what you’re known for. Build the story around it. Make it easy for other people to carry.</p>
           <a class="button" href="https://itsagoodstory.com/services-storytelling-brand-of-you" target="_blank" rel="noopener">See how Brand of You works</a>
         </div>
+      </div>
+    </section>
+    <section class="signup" aria-label="Get the intro">
+      <div class="signup__inner">
+        <div id="fd-form-6ad8dcfd21298a131143dacb"></div>
+        <script>
+          window.fd('form', {
+            formId: '6ad8dcfd21298a131143dacb',
+            containerEl: '#fd-form-6ad8dcfd21298a131143dacb'
+          });
+        </script>
       </div>
     </section>
   </main>

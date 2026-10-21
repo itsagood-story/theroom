@@ -373,3 +373,7 @@ img { max-width: 100%; }
 .masthead__cta:hover { color: var(--lavender); }
 .hero__intro .hero__find { color: var(--blue); }
 .hero__banner .hero__inner { text-align: center; }
+
+/* Flodesk sign-up form, in its own blue band after Brand of You */
+.signup { background: var(--blue); }
+.signup__inner { max-width: 760px; margin: 0 auto; padding: clamp(40px, 6vw, 72px) var(--gutter); }
