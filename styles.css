@@ -388,20 +388,27 @@ img { max-width: 100%; }
 
 /* Soft gate on the list page */
 .gate { display: none; }
-.is-gated .directory { position: relative; }
+.is-gated, .is-gated body { overflow: hidden; }
 .is-gated .gate {
-  display: block;
-  position: absolute;
-  z-index: 15;
-  top: clamp(24px, 4vw, 56px);
-  left: var(--gutter);
-  right: var(--gutter);
+  display: flex;
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  overflow-y: auto;
+  background: rgba(20, 24, 34, .6);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  animation: gate-in .35s ease-out both;
 }
-.gate__card { max-width: 640px; margin: 0 auto; text-align: center; }
-.gate__card > div { box-shadow: 0 30px 80px rgba(29, 34, 48, .18); }
-.gate__fine { margin: 14px 0 0; font-size: 13px; color: var(--muted); background: var(--cream); display: inline-block; padding: 4px 10px; }
+@keyframes gate-in { from { opacity: 0; } to { opacity: 1; } }
+.gate__card { width: 100%; max-width: 560px; margin: auto; text-align: center; }
+.gate__card > div { box-shadow: 0 30px 80px rgba(0, 0, 0, .35); }
+.gate__fine { margin: 14px 0 0; font-size: 13px; color: #fff; }
 .is-gated .directory__body {
-  height: 980px;
+  height: 900px;
   overflow: hidden;
   filter: blur(7px);
   opacity: .55;
