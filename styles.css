@@ -449,3 +449,7 @@ img { max-width: 100%; }
 .footer__title { letter-spacing: -.045em; }
 .section__title { letter-spacing: -.04em; text-transform: capitalize; }
 .group__name { letter-spacing: -.025em; }
+/* Brand of You: no dash, button centered under the copy */
+.byou__copy { padding-left: 0; padding-top: 0; }
+.byou__copy::before { display: none; }
+.byou__copy .button { display: table; margin: 1em auto 0; }
