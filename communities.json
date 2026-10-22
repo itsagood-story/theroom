@@ -181,7 +181,7 @@
       "fee": "free",
       "joining": "open",
       "women": false,
-      "note": "Try the trial period before committing."
+      "note": null
     },
     {
       "id": "demand-collective",
