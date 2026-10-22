@@ -441,3 +441,11 @@ img { max-width: 100%; }
   .byou__copy::before { top: 0; }
 }
 @media (max-width: 520px) { .byou__title { font-size: 15.5vw; } }
+
+/* Match itsagoodstory.com display type: very tight tracking, Title Case on big headlines */
+.hero__title { letter-spacing: -.06em; }
+.hero__sub { letter-spacing: -.035em; }
+.byou__title { letter-spacing: -.055em; }
+.footer__title { letter-spacing: -.045em; }
+.section__title { letter-spacing: -.04em; text-transform: capitalize; }
+.group__name { letter-spacing: -.025em; }
