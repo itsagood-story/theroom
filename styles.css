@@ -460,3 +460,21 @@ img { max-width: 100%; }
 .footer__title .footer__accent { color: var(--red); }
 .footer__sub { margin-top: 24px; }
 @media (max-width: 520px) { .footer__title { font-size: 19vw; } }
+
+/* Footer: headline, CTA and badge on one line, no dead space */
+.footer__top {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 24px clamp(32px, 5vw, 72px);
+}
+.footer__title { margin: 0; }
+.footer__cta { padding-bottom: 10px; max-width: 24em; }
+.footer__cta .footer__sub { margin: 0; }
+.footer__cta .button--blue { margin-top: 20px; }
+.footer .badge { align-self: start; }
+.footer__base p { line-height: 1.6; }
+@media (max-width: 820px) {
+  .footer__top { grid-template-columns: 1fr auto; }
+  .footer__cta { grid-column: 1 / -1; grid-row: 2; padding-bottom: 0; }
+}
