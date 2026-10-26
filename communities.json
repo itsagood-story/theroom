@@ -520,6 +520,19 @@
       "joining": "open",
       "women": true,
       "note": "Limited spots, for now."
+    },
+    {
+      "id": "well-shit-now-what-club",
+      "name": "Well Shit Now What Club",
+      "description": "A free club for the professionally disoriented, for people who thought they’d have it figured out by now. Members get a searchable directory, monthly events and speed networking, and a monthly newsletter.",
+      "url": "https://www.wellshitnowwhatclub.com",
+      "categories": [
+        "General professional"
+      ],
+      "fee": "free",
+      "joining": "open",
+      "women": false,
+      "note": null
     }
   ]
 }
