@@ -99,7 +99,7 @@
               containerEl: '#fd-form-6ad8dcfd21298a131143dacb'
             });
           </script>
-          <p class="gate__fine">Already signed up on another device? Use the link in your welcome email.</p>
+          <p class="gate__fine">Already signed up? <a href="?in=1" style="color:inherit;text-decoration:underline">Come on in.</a></p>
         </div>
       </div>
       <div class="directory__body">
@@ -197,13 +197,22 @@
         }
       }, true);
       var sawForm = false;
+var fb = null;
 new MutationObserver(function () {
   var inputs = box.querySelectorAll("input[type=text], input[type=email]");
   var visible = [].some.call(inputs, function (i) { return i.offsetParent !== null; });
-  if (visible) { sawForm = true; return; }
+  if (visible) { sawForm = true; if (fb) { fb.remove(); fb = null; } return; }
   // The form was on screen and now it is not: Flodesk swapped in its thank-you message.
   if (sawForm || submitted) unlock();
 }).observe(box, { childList: true, subtree: true, attributes: true });
+// If the form never shows up (blocker, private tab, slow connection), say so instead of leaving a blank card.
+setTimeout(function () {
+  if (done || sawForm) return;
+  fb = document.createElement("p");
+  fb.className = "gate__fine";
+  fb.textContent = "The sign-up form didn\u2019t load. Refresh the page, or email gina@itsagoodstory.com and I\u2019ll send you the link.";
+  box.parentNode.insertBefore(fb, box.nextSibling);
+}, 6000);
     })();
   </script>
 </body>
