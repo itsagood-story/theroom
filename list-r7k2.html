@@ -196,13 +196,14 @@
           setTimeout(function () { if (submitted) unlock(); }, 4000); // fallback
         }
       }, true);
-      new MutationObserver(function () {
-        if (!submitted) return;
-        var f = box.querySelector("form");
-        var gone = !f || f.offsetParent === null || !box.querySelector("input[type=text], input[type=email]") ||
-          [].every.call(box.querySelectorAll("input[type=text], input[type=email]"), function (i) { return i.offsetParent === null; });
-        if (gone) unlock();
-      }).observe(box, { childList: true, subtree: true, attributes: true });
+      var sawForm = false;
+new MutationObserver(function () {
+  var inputs = box.querySelectorAll("input[type=text], input[type=email]");
+  var visible = [].some.call(inputs, function (i) { return i.offsetParent !== null; });
+  if (visible) { sawForm = true; return; }
+  // The form was on screen and now it is not: Flodesk swapped in its thank-you message.
+  if (sawForm || submitted) unlock();
+}).observe(box, { childList: true, subtree: true, attributes: true });
     })();
   </script>
 </body>
